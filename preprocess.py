@@ -10,9 +10,9 @@ N_EXTRACT = 10  # number of extracted images from video
 WINDOW_LEN = 5  # frames of each window
 
 # xxx_root下需要有0_real和1_fake文件夹
-audio_root = "/root/aaroncomo/datasets/realworld/wav"
-video_root = "/root/aaroncomo/datasets/realworld"
-output_root = "./datasets/realworld"
+audio_root = "./AVLip/wav"
+video_root = "./AVLip"
+output_root = "./datasets/val"
 
 labels = [(0, "0_real"), (1, "1_fake")]
 max_sample = 100
