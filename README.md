@@ -96,7 +96,7 @@ datasets
 
 Download our pertained weights and save it in to `checkpoints/ckpt.pth`.
 
-~~~python
+~~~bash
 python validate.py --real_list_path ./datasets/val/0_real --fake_list_path ./datasets/val/1_fake --ckpt ./checkpoints/ckpt.pth
 ~~~
 
