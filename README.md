@@ -1,6 +1,6 @@
 # Lips Are Lying: Spotting the Temporal Inconsistency between Audio and Visual in Lip-syncing DeepFakes
 
-**IJCAI 2024 Anonymous Submission #1522**
+**IJCAI 2024 Anonymous Submission #1522** 
 
 This repository contains the codes of "Lips Are Lying: Spotting the Temporal Inconsistency between Audio and Visual in Lip-syncing DeepFakes".
 
