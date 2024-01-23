@@ -2,7 +2,7 @@ import torch
 import numpy as np
 import torch.nn as nn
 from .clip import clip
-from .block_attention import get_backbone
+from .region_awareness import get_backbone
 
 
 class LipFD(nn.Module):
