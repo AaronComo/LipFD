@@ -33,7 +33,7 @@ We will open-source upon publication soon.
 - Python 3.10.13
 
 ~~~bash
-conda create -n LipFD python==3.10
+conda create -n LipFD python==3.10.13
 conda activate LipFD
 ~~~
 

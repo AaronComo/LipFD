@@ -39,3 +39,4 @@ class RALoss(nn.Module):
                 )
             loss += loss_wt / batch_size
         return loss
+ 
