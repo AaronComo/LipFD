@@ -30,10 +30,10 @@ We will open-source upon publication soon.
 
 ## Requirements
 
-- Python 3.10.13
+- Python 3.10
 
 ~~~bash
-conda create -n LipFD python==3.10.13
+conda create -n LipFD python==3.10
 conda activate LipFD
 ~~~
 

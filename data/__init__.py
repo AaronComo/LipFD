@@ -1,7 +1,6 @@
 import torch
 import numpy as np
 from torch.utils.data.sampler import WeightedRandomSampler
-
 from .datasets import AVLip
 
 

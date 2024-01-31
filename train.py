@@ -1,4 +1,3 @@
-import torch
 from validate import validate
 from data import create_dataloader
 from trainer.trainer import Trainer
