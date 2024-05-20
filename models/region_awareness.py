@@ -232,7 +232,7 @@ class ResNet(nn.Module):
             features.clear()
             weights.clear()
             for j in range(len(x)):
-                f = x[i][j]
+                f = x[j][i]
                 f = self.conv1(f)
                 f = self.bn1(f)
                 f = self.relu(f)
@@ -245,7 +245,7 @@ class ResNet(nn.Module):
                 f = torch.flatten(f, 1)
 
                 # features.append(f)
-                features.append(torch.cat([f, feature], dim=2))  # concat regional feature with global feature
+                features.append(torch.cat([f, feature], dim=1))  # concat regional feature with global feature
                 weights.append(self.get_weight(features[-1]))
 
             features_stack = torch.stack(features, dim=2)
@@ -255,7 +255,7 @@ class ResNet(nn.Module):
             weights_max.append(weights_stack[:, :, :len(x)].max(dim=2)[0])
             weights_org.append(weights_stack[:, :, 0])
             parts.append(features_stack.mul(weights_stack).sum(2).div(weights_stack.sum(2)))
-        parts_stack = torch.stack(parts, dim=2)
+        parts_stack = torch.stack(parts, dim=0)
         out = parts_stack.sum(0).div(parts_stack.shape[0])
 
         pred_score = self.fc(out)

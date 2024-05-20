@@ -33,33 +33,31 @@ def validate(model, loader, gpu_id):
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(
-        formatter_class=argparse.ArgumentDefaultsHelpFormatter
-    )
+    parser = argparse.ArgumentParser(formatter_class=argparse.ArgumentDefaultsHelpFormatter)
     parser.add_argument("--real_list_path", type=str, default="./datasets/val/0_real")
     parser.add_argument("--fake_list_path", type=str, default="./datasets/val/1_fake")
-    parser.add_argument(
-        "--max_sample", type=int, default=1000, help="max number of validate samples"
-    )
+    parser.add_argument("--max_sample", type=int, default=1000, help="max number of validate samples")
     parser.add_argument("--batch_size", type=int, default=10)
     parser.add_argument("--data_label", type=str, default="val")
     parser.add_argument("--arch", type=str, default="CLIP:ViT-L/14")
-    parser.add_argument(
-        "--ckpt", type=str, default="./checkpoints/experiment_name/model_epoch_29.pth"
-    )
+    parser.add_argument("--ckpt", type=str, default="./checkpoints/ckpt.pth")
+    parser.add_argument("--gpu", type=int, default=0)
 
     opt = parser.parse_args()
+
+    device = torch.device(f"cuda:{opt.gpu}" if torch.cuda.is_available() else "cpu")
+    print(f"Using cuda {opt.gpu} for inference.")
 
     model = build_model(opt.arch)
     state_dict = torch.load(opt.ckpt, map_location="cpu")
     model.load_state_dict(state_dict["model"])
-    print("Model loaded..")
+    print("Model loaded.")
     model.eval()
-    model.cuda()
+    model.to(device)
 
     dataset = AVLip(opt)
     loader = data_loader = torch.utils.data.DataLoader(
         dataset, batch_size=opt.batch_size, shuffle=True
     )
-    ap, fpr, fnr, acc = validate(model, loader, gpu_id=[0])
-    print(f"ap: {ap} acc: {acc} fpr: {fpr} fnr: {fnr}")
+    ap, fpr, fnr, acc = validate(model, loader, gpu_id=[opt.gpu])
+    print(f"acc: {acc} ap: {ap} fpr: {fpr} fnr: {fnr}")

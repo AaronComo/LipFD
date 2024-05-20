@@ -43,7 +43,9 @@ pip install -r requirements.txt
 
 
 
-## Preprocess
+## Dataset Preprocess
+
+**You can skip this section, if you only want to perform validation.**
 
 Download AVLip dataset and put it in the root directory. 
 
@@ -98,7 +100,9 @@ datasets
 
 ## Validation
 
-Download our pertained weights and save it in to `checkpoints/ckpt.pth`.
+- Download our [pertained weights](https://drive.google.com/file/d/1NPAcx0QS8N9v_9qUr-51jBaL9kGDT-cp/view?usp=share_link) and save it in to `checkpoints/ckpt.pth`. 
+
+- Download [validation set](https://drive.google.com/file/d/1mFWBsK2mfibo55tSOBhk9wxKPsTOWCze/view?usp=share_link) and extract it into `datasets/val`.
 
 ~~~bash
 python validate.py --real_list_path ./datasets/val/0_real --fake_list_path ./datasets/val/1_fake --ckpt ./checkpoints/ckpt.pth
@@ -112,3 +116,16 @@ First, edit `--fake_list_path` and `--real_list_path`  in `options/base_options.
 
 Then, run `python train.py`.
 
+
+## Citation
+
+If you find this repo useful for your research, please consider citing our work:
+
+~~~
+@article{liu2024lips,
+  title={Lips Are Lying: Spotting the Temporal Inconsistency between Audio and Visual in Lip-Syncing DeepFakes},
+  author={Liu, Weifeng and She, Tianyi and Liu, Jiawei and Wang, Run and Yao, Dongyu and Liang, Ziyou},
+  journal={arXiv preprint arXiv:2401.15668},
+  year={2024}
+}
+~~~

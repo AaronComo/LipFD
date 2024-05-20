@@ -13,7 +13,6 @@ class CLIPModel(nn.Module):
         super(CLIPModel, self).__init__()
 
         self.model, self.preprocess = clip.load(name, device="cpu") # self.preprecess will not be used during training, which is handled in Dataset class 
-        # TODO: 在这里加入RAN, 并改变下面的fc层
         self.fc = nn.Linear( CHANNELS[name], num_classes )
  
 
