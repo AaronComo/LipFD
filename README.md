@@ -22,7 +22,7 @@ To the best of our knowledge, the majority of public DeepFake datasets consist s
 
 **Download Link: [AVLips v1.0](https://drive.google.com/file/d/1fEiUo22GBSnWD7nfEwDW86Eiza-pOEJm/view?usp=share_link)**
 
-**Note:** The AVLips v2.0 is coming soon! (MORE forgery methods and data.)
+**News:** The AVLips v2.0 is coming soon! (MORE forgery methods and data.)
 
 <div align=center><img src="README.assets/dataset.png" width="300"></div>
 
