@@ -22,7 +22,6 @@ class AVLip(Dataset):
         return len(self.total_list)
 
     def __getitem__(self, idx):
-        # 缺一个对图片的标准化, 参考validation
         img_path = self.total_list[idx]
         label = self.label_dict[img_path]
         img = torch.tensor(cv2.imread(img_path), dtype=torch.float32)

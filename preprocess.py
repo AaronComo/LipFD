@@ -6,19 +6,29 @@ import matplotlib.pyplot as plt
 from tqdm import tqdm
 from librosa import feature as audio
 
-N_EXTRACT = 10  # number of extracted images from video
-WINDOW_LEN = 5  # frames of each window
 
-# xxx_root下需要有0_real和1_fake文件夹
-audio_root = "./AVLip/wav"
-video_root = "./AVLip"
-output_root = "./datasets/val"
+"""
+Structure of the AVLips dataset:
+AVLips
+├── 0_real
+├── 1_fake
+└── wav
+    ├── 0_real
+    └── 1_fake
+"""
+
+############ Custom parameter ##############
+N_EXTRACT = 10   # number of extracted images from video
+WINDOW_LEN = 5   # frames of each window
+MAX_SAMPLE = 100 
+
+audio_root = "./AVLips/wav"
+video_root = "./AVLips"
+output_root = "./datasets/AVLips"
+############################################
 
 labels = [(0, "0_real"), (1, "1_fake")]
-max_sample = 100
 
-
-# fps是视频帧率
 def get_spectrogram(audio_file):
     data, sr = librosa.load(audio_file)
     mel = librosa.power_to_db(audio.melspectrogram(y=data, sr=sr), ref=np.min)
@@ -31,7 +41,7 @@ def run():
         if not os.path.exists(dataset_name):
             os.makedirs(f"{output_root}/{dataset_name}", exist_ok=True)
 
-        if i == max_sample:
+        if i == MAX_SAMPLE:
             break
         root = f"{video_root}/{dataset_name}"
         video_list = os.listdir(root)
