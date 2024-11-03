@@ -1,12 +1,11 @@
 # [NeruIPS 2024] Lips Are Lying: Spotting the Temporal Inconsistency between Audio and Visual in Lip-syncing DeepFakes
 
 <div>
-   <img alt="Static Badge" src="https://img.shields.io/badge/arXiv-2401.15668v2-grey?style=flat&labelColor=red&link=https%3A%2F%2Farxiv.org%2Fabs%2F2401.15668">
+    <object>
+        <img alt="Static Badge" src="https://img.shields.io/badge/arXiv-2401.15668v2-grey?style=flat&labelColor=red&link=https%3A%2F%2Farxiv.org%2Fabs%2F2401.15668">
     <img alt="Static Badge" src="https://img.shields.io/badge/dataset-AVLips-grey?style=flat&labelColor=blue&link=https%3A%2F%2Fdrive.google.com%2Ffile%2Fd%2F1fEiUo22GBSnWD7nfEwDW86Eiza-pOEJm%2Fview%3Fusp%3Dshare_link">
+    </object>
 </div>
-
-
-
 This repository contains the codes of "Lips Are Lying: Spotting the Temporal Inconsistency between Audio and Visual in Lip-syncing DeepFakes".
 
 ![headline](README.assets/headline.png)
